@@ -10,14 +10,17 @@ class UserLoanHistory(
 
     val bookName: String,
 
-    var isReturn: Boolean,
+    private var _isReturn: Boolean,
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 ) {
 
+    val isReturn: Boolean
+        get() = this._isReturn
+
     fun doReturn() {
-        this.isReturn = true
+        this._isReturn = true
     }
 }

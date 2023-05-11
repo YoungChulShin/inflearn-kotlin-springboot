@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 class User(
-    var name: String,
+    private var _name: String,
 
     val age: Int?,
 
@@ -18,13 +18,16 @@ class User(
     val id: Long? = null,
 ) {
     init {
-        if (name.isBlank()) {
+        if (_name.isBlank()) {
             throw IllegalArgumentException("이름은 비어 있을 수 없습니다");
         }
     }
 
+    val name: String
+        get() = this.name
+
     fun updateName(name: String) {
-        this.name = name;
+        this._name = name
     }
 
     fun loanBook(book: Book) {
