@@ -7,20 +7,17 @@ import javax.persistence.*
 class UserLoanHistory(
     @ManyToOne
     val user: User,
-
     val bookName: String,
-
-    private var _isReturn: Boolean,
-
+    isReturn: Boolean,
+) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-) {
+    val id: Long? = null
 
-    val isReturn: Boolean
-        get() = this._isReturn
+    var isReturn = isReturn
+        private set
 
     fun doReturn() {
-        this._isReturn = true
+        this.isReturn = true
     }
 }

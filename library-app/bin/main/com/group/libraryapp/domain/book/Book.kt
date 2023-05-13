@@ -8,11 +8,11 @@ import javax.persistence.Id
 @Entity
 class Book(
     val name: String,
+) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-) {
+    val id: Long? = null
 
     init {
         if (name.isBlank()) {
