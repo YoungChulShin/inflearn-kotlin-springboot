@@ -1,12 +1,12 @@
-# 메모
-확장 함수를 기존의 함수를 한번 더 래핑해서 기능을 추가할 수 있다
-```kt
+package com.group.libraryapp.util
+
+import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.findByIdOrNull
+
 fun fail(): Nothing {
     throw IllegalArgumentException()
 }
 
-// findByIdOrNull의 기능을 확장한다
 fun <T, ID> CrudRepository<T, ID>.findByIdOrThrow(id: ID): T {
     return this.findByIdOrNull(id) ?: fail()
 }
-```
