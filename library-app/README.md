@@ -10,3 +10,8 @@ fun <T, ID> CrudRepository<T, ID>.findByIdOrThrow(id: ID): T {
     return this.findByIdOrNull(id) ?: fail()
 }
 ```
+
+객체 생성
+1. 생성자
+2. 추가 생성자
+3. Companion Object 내에서 확장 생성자
